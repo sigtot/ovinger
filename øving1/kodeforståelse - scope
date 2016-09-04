@@ -1,0 +1,22 @@
+a)
+i main : 7 3
+---> i swap : 3 7
+i main : 7 3
+---> i printglobals : 5 8
+i main : 7 3
+
+b)
+I main() overskrives x og y til å bli henholdsvis 7 og 3, og skrives så ut i første print()
+
+x og y mates deretter inn i swap() som to parametre, som forvirrende nok også heter x og y. Men dette er ikke samme x og y som de globale variablene x og y. Dermed, når x og y swappes i swap() endres ikke variablene x og y utenfor swap(). I swap() printes derfor 3 7, men i main() printes så 7 3 slik som tidligere.
+
+I printglobals() printes så de globale variabelverdiene for x og y som var definert i starten av programmet, 5 og 8. Utenfor main() har de altså ikke blitt skrevet om til 7 og 3. De er kun skrevet over lokalt, for å ha skrevet over globalt måtte man ha deklarert global x og global y inne i main først slik:
+def main ():
+    global x
+    global y
+    x = 7
+    y = 3
+...
+Dette kan man ikke gjøre i swap() fordi x og y som sagt, er parametre der og ikke de globale variablene x og y
+
+Til slutt printes de omskrevne variablene på nytt i main(): 7 og 3.
