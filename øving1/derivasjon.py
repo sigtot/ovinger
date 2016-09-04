@@ -7,4 +7,3 @@ f1 = math.sin(x)
 f2 = math.sin(x+h)
 
 print("Deriverte blir",round((f2-f1)/h,4))
-print("And some more")
