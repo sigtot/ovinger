@@ -15,7 +15,8 @@ def fibonacci(k):
 def fList(k):
 	# Ikke den mest optimale metoden. 
 	# fibonacci() funksjonen kjøres en gang for hvert fall i rekka
+	# TODO :^)
 	for i in range(k): 
 		print(fibonacci(i))
 
-fList(2000)
+fList(12)
