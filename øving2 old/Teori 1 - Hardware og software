@@ -1,0 +1,19 @@
+1 - Hardware og software
+a)
+Primær lagring, kalles ofte bare minne og er midlertidig datalagring. Prosessorer i datamaskinen har gjerne enklere (mer hurtig) tilgang på dataene som lagres her. Alle processorer har cache, som er innebygd minne, som processoren har ekstra rask tilgang til. RAM brikker, (Random Access Memory) kan også leses og skrives til svært raskt.
+Det som skiller primær og sekundær lagring er at den primære slettes når datamaskinen slås av, sekundær lagring derimot er permanent, og må overskrives av annen data for å slettes. Primær lagring er altså volatilt minneSekundær lagring skjer gjerne på en harddisk (HDD) eller en flashminnebrikke (f.eks SSD). Noen operativsystemer emulerer primærlagring på et sekundærlagringsmedium for å øke minnekapasiteten til datamaskinen. Denne teknologien kalles SWAP og kan benyttes til å lagre lavt prioritert programcache når det ikke er mer plass i RAMen.
+
+b)
+En harddisk består av hurtig roterende disker og en leser/skriverarm som skriver inn bits i harddisken med en magnet. En SSD er en type flashminnelagring som ikke har noen bevegelige deler. Dataen skrives inn og leses elektronisk, dette tar mindre energi og plass. De fleste SSDer bruker sekvensiell aksess, men det finnes enkelte som har tilfeldig aksess. Med årene har teknologien blitt raskere enn konvensjonelle harddisker og kan potensiellt bli langt raskere enn de harddiskene vi har i dag. RAM (Random Access Memory) bruker som navnet tilsier tilfeldig aksess. Dette gjør at RAM kan leses av og skrives til svært raskt, noe som er ideelt for ting som programcache
+
+c)
+Silicium er et lett tilgjengelig halvledermateriale. Veldig mange komponenter i en datamaskin baserer seg på halvleder teknologi, så silicium brukes derfor mye. 
+
+d)
+Datamaskiner kan behandle og lagre digital informasjon. Man kan konvertere analog informasjon som bilder og lyd gjennom fotoceller (bilder) eller en AD konverter (lyd). Disse signalene kan så representeres digitalt med bits. Tekst kan også representeres med bits. 
+
+e)
+6.4kb/s
+
+f)
+Operativsystemet er bindeleddet mellom brukeren og en datamaskin. Uten dette har datamaskinen begrenset funksjonalitet. OSet er også et bindeledd mellom programmer på datamaskinen og hardware i maskinen. Innebygd i OSet ligger nemlig hardwaredrivere til de forskjellige komponentene. OSet oversetter også gjerne fra programmeringsspråk til maskinkode slik at prosessorene kan forstå det. Nedenfor operativsystemet har man nemlig firmware som f.eks BIOS. Denne typen programvare tar seg kun av de mest grunnleggende oppgavene, som å installere et OS :) Enkle apparater som kanskje bare har en mikrokontroller og et par komponenter, trenger ikke nødvendigvis et OS. 
