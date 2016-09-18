@@ -1,0 +1,52 @@
+a)
+Pseudokode beskriver programlogikk med vanlig språk
+
+Klassifisering av tall:
+
+def checkInt(number):
+	if modulo 1 to number is 0 then return True
+	else: return False
+
+def checkEven(number):
+	if modulo 2 to number is 0 then return True
+	else: return False
+
+def checkSign(number):
+	if number is larger than 0 then return True
+	elif number is smaller than 0 then return False
+	else: return 2
+
+def compareNums(n,p):
+	if n larger than p or n smaller then p: return False
+	else: return True
+
+def main():
+	input n
+	if n is int then
+		print 'Dette er et heltall'
+		if n is even then 'Dette er et partall'
+		else: print 'Dette er et oddetall'
+	else: print 'Dette er ikke et heltall'
+	if n is positive: print 'Dette er et positivt tall'
+	elif n is 0: print 'Dette tallet er hverken positivt eller negativt'
+	else: print 'Dette er et negativt tall'
+	main()
+main()
+
+ish
+
+b)
+Et flytdiagram kan programkode eller andre prosesser i grafisk form. Det er bygget opp av ulike former som beskriver hva programmet skal gjøre. Man starter og slutter med runde former, firkanter gjør ting og diamanter er valg man kan ta. Formene kobles sammen med streker. Følger man streken finner man rekkefølgen i logikken.
+
+c) Hva er debugging?
+Feilsøking. Søking etter feil i programmet. 
+
+d) Hva er forksjellen på et høynivå- og et lavnivå-programmeringsspråk? 
+Lavnivåspråk bruker man gjerne til å skrive drivere, operativsystemer, programmeringspråk osv. Ting som er langt "nede" i systemarkitekturen. Assembly er et eksempel på et lavnivåspråk. C kode kompileres ofte til assemblykode. Høynivå språk har gjerne mer funksjonalitet innebygd i språket. Språk som python eller javascript er eksempler på høynivå språk. Med slike språk kan man skrive programmer osv. 
+
+e) Forklar de fem stegene i Hente/Utføre-kretsen.
+0. Start syklusen
+	Typisk med en gang datamaskinen skrus på
+1. 
+
+f) Hva gjør programtelleren (Program Counter)?
