@@ -45,8 +45,25 @@ d) Hva er forksjellen på et høynivå- og et lavnivå-programmeringsspråk?
 Lavnivåspråk bruker man gjerne til å skrive drivere, operativsystemer, programmeringspråk osv. Ting som er langt "nede" i systemarkitekturen. Assembly er et eksempel på et lavnivåspråk. C kode kompileres ofte til assemblykode. Høynivå språk har gjerne mer funksjonalitet innebygd i språket. Språk som python eller javascript er eksempler på høynivå språk. Med slike språk kan man skrive programmer osv. 
 
 e) Forklar de fem stegene i Hente/Utføre-kretsen.
-0. Start syklusen
-	Typisk med en gang datamaskinen skrus på
-1. 
+1. Instruction Fetch (IF)
+	Adressen til instruksjon hentes og plasseres i Programtelleren (PC)
+	Adressen plasseres deretter i MAR (Memory adress register) og PC inkementeres 
+	Minnet blir så lest på denne adressen, og denne instruksjonen flyttes til instruksjonsregisteret (IR)
+
+2. Instruction Decode (ID)
+	Instruksjonen plasseres i instruksjonsdekoderen
+	Her dekodes instruksjonen slik at prosessoren kan utføre den
+
+3. Data Fetch (DF)
+	Om instruksen er en aritmetrisk eller logisk operasjon, altså ikke bare en "flytteoperasjon" hentes data fra minne her
+	Dataen skal deretter brukes i ALU
+
+4. Instruction execute (EX)
+	Instruksjonen utføres
+
+5. Return 
+	Resultatet kan så returneres til en adresse i minne
 
 f) Hva gjør programtelleren (Program Counter)?
+	I programtelleren ligger minneadressen med instruksjonen som skal kjøres
+	Når instruksjonen blir kjørt inkrementeres PC, slik at neste instruksjon kan kjøre
