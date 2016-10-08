@@ -42,14 +42,9 @@ def workDay(d):
 	if d in weekend: return False
 	else: return True
 
-months = (31,28,31,30,31,30,31,31,30,31,30,31)
-
 def numWorkDays(y):
 	initialDay = firstDay(y)
 	n = 0
-	"""for m in months:
-		for date in range(months[m]):
-			if"""
 	# Brute force that shit
 	yearLength = 365
 	if isLeapYear(y): yearLength += 1
@@ -67,5 +62,5 @@ def listWorkDays(y):
 
 print('-------- Første dager --------')
 firstDayList(1920)
-print('\n------- Arbeidsddager -------')
+print('\n------- Arbeidsdager -------')
 listWorkDays(1920)
