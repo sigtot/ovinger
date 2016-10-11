@@ -1,0 +1,22 @@
+a)
+Arpanet. Utviklet av det amerikanske militæret.
+
+b)
+Paritetssjekk er en enkel måte å detektere transmission feil. 
+
+En paritetsbit legges til slutten av hver binær-string. Denne biten beskriver om antall 1-er i stringen er partall eller oddetall. For even parity vil dette tilsi henholdsvis 0 og 1. Mottageren av stringen kan da sjekke om pariteten stemmer med antall 1-ere. 
+
+c)
+I et nettverk som bruker circuit switching kobles mottaker og sender fysisk opp i en egen krets. Gamle telefon nettverk fungerte på denne måten.
+
+Bruker man derimot packet switching slipper man å ha en separat krets for hver kommunikasjon. Hver pakke har en header der det står hvor pakken skal
+
+d)
+HTTP 		(Applikasjonslag)
+TCP 		(Transportlag)
+IP			(Nettverkslag)
+Ethernet	(Datalink)
+IEEE 802.3u	(Fysisk)
+
+e)
+Ruterne tar seg av å dirigere pakkene dit de skal i nettverket. Den leser informasjonen som står i headeren og videresender pakken i henhold til rutertabellen. 

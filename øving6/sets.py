@@ -11,3 +11,11 @@ def showArray():
 	arr = arr.reshape(3,5)
 	arr = np.transpose(arr)
 	return arr
+
+ver = np.array([2,0])
+hor = np.array([0,2])
+
+def areOrthogonal(a,b):
+	# Prikkprodukt er null hvis vektorene er vinkelrette
+	if np.dot(a,b) == 0: return True
+	else: return False
