@@ -24,6 +24,7 @@ for i in numberList:
 		previous = numberList[i - 1] 
 		numberList[i - 1] = i
 		numberList[i] = previous
+		# x,y = y,x
 print('\n------ Bytter om på odde og partall ------')
 print(numberList)
 
