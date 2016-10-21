@@ -1,0 +1,17 @@
+a)
+Et intranett er et privat nettverk som kun er tilgjengelig for medlemmer i en organisasjon. Nettverket kan være lokalt (LAN) eller en sammenkobling av flere lokaler over internett (WAN). 
+
+b)
+En ruter videresender pakker (dirigerer datatrafikken), en host sender eller mottar pakker. 
+
+c)
+En protokoll er et sett med regler som bestemmer hvordan kommunikasjonen skal foregå.
+
+d)
+En IP-adresse er en adresse som hver enhet i et nettverk tilegnes for å gi enheten en unik identitet. (Unik i nettverket, ikke nødvendigvis unik globalt)
+
+e)
+IPv4 og IPv6 er to forskjellige versjoner av internet protokollen. Den tydeligste forskjellen mellom de er at adressene er forskjellige. IPv6 bruker flere tall, og kan dermed ha flere unike adresser. 
+
+f)
+IP-protokollen er systemet som får hele internet til å fungere. IP tar seg av å plassere data i pakker, med header, payload. Deretter tar systemet seg av transport og routing gjennom netverket, ved å lese av og tilegne IP-adresser.
