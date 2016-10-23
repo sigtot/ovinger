@@ -42,7 +42,7 @@ ordbok med ofte brukte ord, og lete gjennom etter to ord som passer
 """
 
 
-def hack(code1,code2):
+def quickHack(code1,code2):
 	dictionary = ['hei','hvordan','hade']
 	xor = code1 ^ code2
 	for e in dictionary:
@@ -60,7 +60,7 @@ def hack(code1,code2):
 			print('Encrypted:',code2)
 			print('------------------------\n')
 
-def longHack(code1,code2):
+def hack(code1,code2):
 	# Bruk /usr/share/dict/words som ordbok
 	#
 	with open('/usr/share/dict/wordlist') as f:
@@ -85,6 +85,57 @@ def longHack(code1,code2):
 		        raise
 		except:
 			lel = 'lel'
+""" Tidligere hacks 
 
-# k.encrypt("acorn","foo")
-# k.encrypt("alas","foo")
+TEST 1
+>>> k.encrypt("right","posh")
+490046233372
+>>> k.encrypt("blur","posh")
+302188058
+>>> k.hack(490046233372,302188058)
+----- Key: r{dnn -----
+Msg1: blur
+Encrypted: 490046233372 
+
+Msg2: right
+Encrypted: 302188058
+------------------------
+
+----- Key: posh -----
+Msg1: right
+Encrypted: 490046233372 
+
+Msg2: blur
+Encrypted: 302188058
+------------------------
+
+TEST 2
+>>> k.encrypt("hello","hoho")
+446894900224
+>>> k.encrypt("john","hoho")
+33554433
+>>> k.hack(446894900224,33554433)
+----- Key: hklas -----
+Msg1: foes
+Encrypted: 446894900224 
+
+Msg2: hilar
+Encrypted: 33554433
+------------------------
+
+----- Key: lore -----
+Msg1: halve
+Encrypted: 446894900224 
+
+Msg2: nord
+Encrypted: 33554433
+------------------------
+
+----- Key: hoho -----
+Msg1: hello
+Encrypted: 446894900224 
+
+Msg2: john
+Encrypted: 33554433
+------------------------
+"""
