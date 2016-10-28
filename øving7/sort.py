@@ -3,8 +3,7 @@ def isSorted(lst):
 		try: 
 			if e > lst[i + 1]: return False
 		except:
-			# Try uten except?
-			lel = 'wow'
+			pass
 	return True
 
 #a

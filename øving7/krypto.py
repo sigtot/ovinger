@@ -27,6 +27,8 @@ def main(msg):
 	decrypted = decrypt(encrypted, key)
 	print('Dekryptert melding:', decrypted)
 
+	print(key)
+
 #d
 # Hacke tid
 
