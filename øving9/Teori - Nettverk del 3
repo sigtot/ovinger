@@ -1,0 +1,21 @@
+a) Hvordan behandler TCP en tapt pakke?
+
+Når TCP oppdager en tapt pakke, etterspør den en ettersendelse fra avsenderen. 
+
+b) Hvilke tre egenskaper er det vanligst å bruke når man ser på hvor god ytelse et nettverk har?
+
+Båndbredde, ping, pakketap?
+
+c) Forklar enkelt hvordan RSA-kryptering fungerer og hva en public og private key er.
+
+RSA kryptering bruker public og private keys for å kryptere data. Puplic keyen kan alle se, og den brukes til å kryptere meldinger, men kun mottakeren kjenner private keyen, som brukes til å dekryptere meldingen. 
+
+d) Hva står VPN for og hva er det?
+
+VPN - Virtual Private Network
+Det settes opp en kryptert "tunell" mellom brukeren og en VPN-server. Serveren sender data videre fra brukeren til dit brukeren vil ha det, slik at trafikken tilsynelatende kommer fra VPN-serveren og ikke fra brukeren. 
+
+e) DDOS attack
+
+Distributed Denial Of Service attack
+DOS er så sende så mange pakker som mulig til en server i håp om at den bukker under. DDOS er et distribuert angrep, altså er det flere nettverksenheter som jobber sammen om å knekke serveren. Kan gjøres med botnet eller faktiske brukere. 
