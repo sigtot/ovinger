@@ -1,4 +1,5 @@
 from tkinter import *
+from PIL import Image
 
 # Variables
 backgroundColor = "#eeeeee"
@@ -27,7 +28,6 @@ def drawTiles():
 			# It's probably the opposite if it's odd sized tho, so 
 			# with a second condition this could be solved easily
 			# I just don't really care enough
-			print((j + i) % 2)
 			if (j + i) % 2 != 0:
 				w.create_rectangle(j * tileWidth, i * tileHeight, j * tileWidth + tileWidth, i * tileHeight + tileHeight, fill=tileColor, outline=tileColor)
 
@@ -35,15 +35,24 @@ drawTiles()
 pieceMatrix = [['r','B','q'],['p','P','K']]
 def drawPieces(pieceMatrix):
 	# Just to show photo implementation
-	photo = PhotoImage(file='p.png')
-	print(photo)
-	w.create_image(40, 40, image = photo, anchor = NW)
+	#photo = Image.open('p.png')
+	#print(photo)
+	#PhotoImage(photo)
+	w.photos = []
+	for i,row in enumerate(pieceMatrix):
+		w.photos.append([])
+		for j,piece in enumerate(row):
+			photo = PhotoImage(file='img46/{}.gif'.format(piece))
+			#w.photo = photo
+			w.photos[i].append(photo)
+			w.create_image(tileWidth * i, tileWidth * j, anchor=NW, image=w.photos[i][j])
 
+drawPieces(pieceMatrix)
 
 def main():
 	while True:
 		input("say somthn ")
-		drawPieces("kek")
+		#drawPieces("kek")
 		#w.create_rectangle(300,200,310,210,fill="#ff0000")
 
 master.after(0,main())

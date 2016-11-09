@@ -4,6 +4,7 @@ def csvToDict(file):
 	entries = {}
 
 	lines = file.read().splitlines()
+	file.close()
 	for line in lines:
 		try:
 			# Prøver int
@@ -12,6 +13,9 @@ def csvToDict(file):
 		except ValueError:
 			# Om det ikke er en int, bare legger vil til strengen
 			entries[line.split(',')[0]] = line.split(',')[1].replace('"','')
+
+	for i in range(90):
+		print(lines[i])
 
 	return entries
 linjer = csvToDict(file)
