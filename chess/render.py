@@ -1,5 +1,7 @@
 from tkinter import *
 from PIL import Image
+import moves
+import superGlobals as sg
 
 # Variables
 backgroundColor = "#eeeeee"
@@ -15,9 +17,6 @@ master = Tk()
 w = Canvas(master, width=canvasWidth, height=canvasHeight, bg=backgroundColor, highlightthickness=0)
 w.pack()
 
-#Order
-#w.create_rectangle(x0,y0,x1,x1)
-
 #Draw tiles
 def drawTiles():
 	for i in range(boardLength):
@@ -32,12 +31,7 @@ def drawTiles():
 				w.create_rectangle(j * tileWidth, i * tileHeight, j * tileWidth + tileWidth, i * tileHeight + tileHeight, fill=tileColor, outline=tileColor)
 
 drawTiles()
-pieceMatrix = [['r','B','q'],['p','P','K']]
 def drawPieces(pieceMatrix):
-	# Just to show photo implementation
-	#photo = Image.open('p.png')
-	#print(photo)
-	#PhotoImage(photo)
 	w.photos = []
 	for i,row in enumerate(pieceMatrix):
 		w.photos.append([])
@@ -45,13 +39,14 @@ def drawPieces(pieceMatrix):
 			photo = PhotoImage(file='img46/{}.gif'.format(piece))
 			#w.photo = photo
 			w.photos[i].append(photo)
-			w.create_image(tileWidth * i, tileWidth * j, anchor=NW, image=w.photos[i][j])
+			w.create_image(tileWidth * j, tileWidth * i, anchor=NW, image=w.photos[i][j])
 
-drawPieces(pieceMatrix)
+drawPieces(sg.pieceMatrix)
 
 def main():
 	while True:
-		input("say somthn ")
+		move = moves.getMove()
+		print(move)
 		#drawPieces("kek")
 		#w.create_rectangle(300,200,310,210,fill="#ff0000")
 
