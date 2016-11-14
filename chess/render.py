@@ -3,9 +3,12 @@ from PIL import Image
 import moves
 import superGlobals as sg
 
+import sys
+sys.setrecursionlimit(10000000) # YES RECURSION
+
 # Variables
-backgroundColor = "#eeeeee"
-tileColor = "#222222"
+backgroundColor = '#ffce9e' #"#eeeeee"
+tileColor = '#d18b47' #"#222222"
 canvasHeight = 400
 canvasWidth = 400
 boardLength = 8
@@ -36,19 +39,28 @@ def drawPieces(pieceMatrix):
 	for i,row in enumerate(pieceMatrix):
 		w.photos.append([])
 		for j,piece in enumerate(row):
-			photo = PhotoImage(file='img46/{}.gif'.format(piece))
-			#w.photo = photo
+			# æsj
+			if piece == '': photo = ''
+			else: photo = PhotoImage(file='img46/{}.gif'.format(piece))
 			w.photos[i].append(photo)
-			w.create_image(tileWidth * j, tileWidth * i, anchor=NW, image=w.photos[i][j])
+
+			if piece != '':
+				w.create_image(tileWidth * j, tileWidth * i, anchor=NW, image=w.photos[i][j])
+
+def performMove(move):
+	# Remember [X,Y] in move corresponds to [Y][X] in matrix
+	# target = piece
+	sg.pieceMatrix[move[1][1]][move[1][0]] = sg.pieceMatrix[move[0][1]][move[0][0]]
+	#piece = ''
+	sg.pieceMatrix[move[0][1]][move[0][0]] = ''
+	sg.blackTurn = not sg.blackTurn
 
 drawPieces(sg.pieceMatrix)
-
 def main():
-	while True:
-		move = moves.getMove()
-		print(move)
-		#drawPieces("kek")
-		#w.create_rectangle(300,200,310,210,fill="#ff0000")
+	move = moves.getMove()
+	performMove(move)
+	drawPieces(sg.pieceMatrix)
+	master.after(0,main())
 
 master.after(0,main())
 
