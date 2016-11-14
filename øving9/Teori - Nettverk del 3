@@ -18,4 +18,4 @@ Det settes opp en kryptert "tunell" mellom brukeren og en VPN-server. Serveren s
 e) DDOS attack
 
 Distributed Denial Of Service attack
-DOS er så sende så mange pakker som mulig til en server i håp om at den bukker under. DDOS er et distribuert angrep, altså er det flere nettverksenheter som jobber sammen om å knekke serveren. Kan gjøres med botnet eller faktiske brukere. 
+DOS er å sende så mange pakker som mulig til en server i håp om at den bukker under. DDOS er et distribuert angrep, altså er det flere nettverksenheter som jobber sammen om å knekke serveren. Kan gjøres med botnet eller faktiske brukere. 

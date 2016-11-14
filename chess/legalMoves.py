@@ -35,8 +35,25 @@ def moveIsLegal(move):
 		print('Illegal move')
 		return False
 
+	# Also check if our move is obstructed by anything
+	if moveIsObstructed(move):
+		print('Something is in the way')
+		return False
+
 	# Otherwise
 	return True
+
+def moveIsObstructed(move):
+	# Only handles straight moves
+	v = makeVector(move)
+	if not (abs(v[0]) == abs(v[1]) or v[0] == 0 or v[1] == 0):
+		return False
+	for i in range(max(v)):
+		if sg.pieceMatrix[move[0][1] + v[1]][move[0][0] + v[0]] != '':
+			return True
+		v[0] = sub(v[0])
+		v[1] = sub(v[1])
+
 
 def moveFitsPattern(piece,v):
 	# Assuming no shit has made it's way into our board
@@ -107,3 +124,14 @@ def makeVector(move):
 
 def isLower(letter):
 	return letter == letter.lower()
+
+def sub(n):
+	# Subtract one until val reaches zero
+	if not n:
+		return n
+	else:
+		return sign(n) * (abs(n) - 1)
+
+def sign(n):
+	if n > 0: return 1
+	if n < 0: return -1
