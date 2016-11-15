@@ -8,7 +8,7 @@ pieceMatrix = [
 	['P','P','P','P','P','P','P','P'],
 	['R','N','B','Q','K','B','N','R']
 ]
-blackTurn = True
+blackTurn = False
 
 def lop():
 	for y in pieceMatrix:

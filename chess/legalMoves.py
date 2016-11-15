@@ -40,15 +40,49 @@ def moveIsLegal(move):
 		print('Something is in the way')
 		return False
 
+	# Extra pawn stuff
+	if not rickHarrison(move,v,piece):
+		print('I\'m Rick Harrison and this is my pawn shop')
+		return False
+
 	# Otherwise
 	return True
+
+def rickHarrison(move,v,piece):
+		if piece.lower() != 'p': return True
+		def targetEmpty():
+			target = sg.pieceMatrix[move[1][1]][move[1][0]]
+			return target == ''
+
+		def pieceInSecondRow():
+			boardLength = 8 # Make superglobal
+			row = move[0][1]
+			return row == boardLength - 2 and not sg.blackTurn or row == 1 and sg.blackTurn
+
+		direction = getDirection()
+
+		pawnStraight = [0,1 * direction]
+		pawnLong = [0,2 * direction]
+		pawnDiag = [[1 * direction, 1 * direction],[-1 * direction, 1 * direction]]
+
+		def debug():
+			print('targetEmpty',targetEmpty())
+			print('v == pawnStraight',v == pawnStraight)
+			print('v == pawnLong',v == pawnLong)
+			print('pieceInSecondRow()',pieceInSecondRow())
+			print('v in pawnDiag',v in pawnDiag)
+			print('v in pawnDiag and not targetEmpty()',v in pawnDiag and not targetEmpty())
+			print('rickHarrison',targetEmpty() and (v == pawnStraight or v == pawnLong and pieceInSecondRow()) or v in pawnDiag and not targetEmpty())
+		#debug()
+
+		return targetEmpty() and (v == pawnStraight or v == pawnLong and pieceInSecondRow()) or v in pawnDiag and not targetEmpty()
 
 def moveIsObstructed(move):
 	# Only handles straight moves
 	v = makeVector(move)
 	if not (abs(v[0]) == abs(v[1]) or v[0] == 0 or v[1] == 0):
 		return False
-	for i in range(max(v)):
+	for i in range(max(v) - 1):
 		if sg.pieceMatrix[move[0][1] + v[1]][move[0][0] + v[0]] != '':
 			return True
 		v[0] = sub(v[0])
@@ -62,9 +96,7 @@ def moveFitsPattern(piece,v):
 	if piece.lower() == 'p':
 		# Pawn movement direction depends on player color
 		# Black side is upper side
-		direction = -1
-		if sg.blackTurn:
-			direction = 1
+		direction = getDirection()
 		pawnMoves = [[0, 1 * direction], [0, 2 * direction], [1 * direction, 1 * direction],[-1 * direction, 1 * direction]]
 		return v in pawnMoves
 
@@ -135,3 +167,9 @@ def sub(n):
 def sign(n):
 	if n > 0: return 1
 	if n < 0: return -1
+
+def getDirection():
+	direction = -1
+	if sg.blackTurn:
+		direction = 1
+	return direction
