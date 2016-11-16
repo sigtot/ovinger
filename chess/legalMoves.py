@@ -5,21 +5,25 @@ def moveIsLegal(move, silent = False):
 	# VECTOR COORDINATES ARE X-Y, IN sg.pieceMatrix THAT WOULD
 	# CORRESPOND TO [Y][X], NOT [X][Y]
 
+	def printError(msg):
+		if not silent:
+			print(msg)
 	# Make sure there's even a piece on the given tile
+
 	piece = sg.pieceMatrix[move[0][1]][move[0][0]]
 	if piece == '':
-		print('No piece on that tile')
+		printError('No piece on that tile')
 		return False
 
 	# First make sure that we're the right color
 	if sg.blackTurn != sg.isLower(piece) and piece != '':
-		print('That\'s the wrong color')
+		printError('That\'s the wrong color')
 		return False
 
 	# And that we're not about to step on our own piece
 	target = sg.pieceMatrix[move[1][1]][move[1][0]]
 	if sg.blackTurn == sg.isLower(target) and target != '':
-		print('You already have a piece on that tile')
+		printError('You already have a piece on that tile')
 		return False
 
 	# Make sure we move at all
@@ -27,22 +31,22 @@ def moveIsLegal(move, silent = False):
 	# REDUNDANT, would have stepped on own piece
 	v = makeVector(move) # We do need this tho
 	if v[0] == 0 and v[1] == 0:
-		print('0 length move')
+		printError('0 length move')
 		return False
 
 	# Then we find out if the move fits legal pattern for the given piece
 	if not moveFitsPattern(piece,v):
-		print('Illegal move')
+		printError('Illegal move')
 		return False
 
 	# Also check if our move is obstructed by anything
 	if moveIsObstructed(move):
-		print('Something is in the way')
+		printError('Something is in the way')
 		return False
 
 	# Extra pawn stuff
 	if not rickHarrison(move,v,piece):
-		print('I\'m Rick Harrison and this is my pawn shop')
+		printError('I\'m Rick Harrison and this is my pawn shop')
 		return False
 
 	# Otherwise

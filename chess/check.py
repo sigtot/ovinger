@@ -15,7 +15,6 @@ def check():
 						if x: tileToCheck = [center[0], center[1] + tileDelta * direction]
 						else: tileToCheck = [center[0] + tileDelta * direction, center[1]]
 						piece = sg.pieceMatrix[tileToCheck[0]][tileToCheck[1]]
-						print(piece)
 						if min(tileToCheck) < 0: break;
 						if piece != '':
 							if not sameCase(kingPiece,piece) and piece.lower() in ('r','q'):
@@ -33,7 +32,6 @@ def check():
 					try:
 						tileToCheck = [center[0] + tileDelta * y, center[1] + tileDelta * x]
 						piece = sg.pieceMatrix[tileToCheck[0]][tileToCheck[1]]
-						print(piece)
 						if min(tileToCheck) < 0: break;
 						if piece != '':
 							if not sameCase(kingPiece,piece) and piece.lower() in ('b','q'):
@@ -45,14 +43,12 @@ def check():
 
 	def checkClose(center,kingPiece):
 		alreadyChecked = [list(center)]
-		print(alreadyChecked)
 		for i in range(-1,2):
 			for j in range(-1,2):
 				tileToCheck = [sg.ia(center[0], i, 0, sg.boardLength - 1),sg.ia(center[1], j, 0, sg.boardLength - 1)]
 				if tileToCheck in alreadyChecked: continue
 				alreadyChecked.append(tileToCheck)
 				piece = sg.pieceMatrix[tileToCheck[0]][tileToCheck[1]]
-				print([i,j],tileToCheck,piece)
 				if piece.lower() == 'k':
 					print('Check! (Close)')
 					return True
@@ -106,14 +102,28 @@ def check():
 	for k in ('k','K'):
 		king = getIndexes(k)
 		checkStraight(king,k)
-		checkDiag(king)
+		checkDiag(king,k)
 		checkClose(king,k)
 		checkPawn(king,k)
 		grumpyHorse(king,k)
 
 
 def checkMate(piece):
-	
+	"""alreadyChecked = [list(center)]
+	for i in range(-1,2):
+		for j in range(-1,2):
+			tileToCheck = [sg.ia(center[0], i, 0, sg.boardLength - 1),sg.ia(center[1], j, 0, sg.boardLength - 1)]
+			if tileToCheck in alreadyChecked: continue
+			alreadyChecked.append(tileToCheck)
+			piece = sg.pieceMatrix[tileToCheck[0]][tileToCheck[1]]
+			if piece.lower() == 'k':
+				print('Check! (Close)')
+				return True"""
+	#I'm too tired for this shit
+	# 1. Check check if the king can move to each tile
+	# 2. Move the king to every possible tile
+	# 3. If every position returns a True check(), current user is in check
+
 	return False
 
 def sameCase(l1,l2):
