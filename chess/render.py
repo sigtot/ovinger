@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image
 import moves
 import superGlobals as sg
+import check
 
 import sys
 sys.setrecursionlimit(10000000) # YES RECURSION
@@ -61,6 +62,8 @@ def main():
 	performMove(move)
 	drawPieces(sg.pieceMatrix)
 	master.after(0,main())
+	if check.check(): print('Check!')
+	if check.checkMate(): print('Check mate!')
 
 master.after(0,main())
 

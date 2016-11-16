@@ -12,13 +12,13 @@ def moveIsLegal(move):
 		return False
 
 	# First make sure that we're the right color
-	if sg.blackTurn != isLower(piece) and piece != '':
+	if sg.blackTurn != sg.isLower(piece) and piece != '':
 		print('That\'s the wrong color')
 		return False
 
 	# And that we're not about to step on our own piece
 	target = sg.pieceMatrix[move[1][1]][move[1][0]]
-	if sg.blackTurn == isLower(target) and target != '':
+	if sg.blackTurn == sg.isLower(target) and target != '':
 		print('You already have a piece on that tile')
 		return False
 
@@ -153,9 +153,6 @@ def moveFitsPattern(piece,v):
 
 def makeVector(move):
 	return [move[1][0] - move[0][0], move[1][1] - move[0][1]]
-
-def isLower(letter):
-	return letter == letter.lower()
 
 def sub(n):
 	# Subtract one until val reaches zero
