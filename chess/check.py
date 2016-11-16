@@ -113,6 +113,7 @@ def check():
 
 
 def checkMate(piece):
+	
 	return False
 
 def sameCase(l1,l2):

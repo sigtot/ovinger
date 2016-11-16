@@ -1,7 +1,7 @@
 # OOP?
 import superGlobals as sg
 
-def moveIsLegal(move):
+def moveIsLegal(move, silent = False):
 	# VECTOR COORDINATES ARE X-Y, IN sg.pieceMatrix THAT WOULD
 	# CORRESPOND TO [Y][X], NOT [X][Y]
 

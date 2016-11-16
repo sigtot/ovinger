@@ -62,8 +62,9 @@ def main():
 	performMove(move)
 	drawPieces(sg.pieceMatrix)
 	master.after(0,main())
-	if check.check(): print('Check!')
-	if check.checkMate(): print('Check mate!')
+	if check.check(): 
+		print('Check!')
+		if check.checkMate(): print('Check mate!')
 
 master.after(0,main())
 
