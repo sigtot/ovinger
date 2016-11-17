@@ -48,22 +48,47 @@ def drawPieces(pieceMatrix):
 			if piece != '':
 				w.create_image(tileWidth * j, tileWidth * i, anchor=NW, image=w.photos[i][j])
 
-def performMove(move):
-	# Remember [X,Y] in move corresponds to [Y][X] in matrix
-	# target = piece
-	sg.pieceMatrix[move[1][1]][move[1][0]] = sg.pieceMatrix[move[0][1]][move[0][0]]
-	#piece = ''
-	sg.pieceMatrix[move[0][1]][move[0][0]] = ''
-	sg.blackTurn = not sg.blackTurn
-
 drawPieces(sg.pieceMatrix)
 def main():
 	move = moves.getMove()
-	performMove(move)
+	if sg.getCheck():
+		old = moves.performMove(move,True)
+		if sg.blackTurn: 
+			king = check.getIndexes('k')
+			k = 'k'
+		else: 
+			king = check.getIndexes('K')
+			k = 'K'
+		if check.check(True,king,k):
+			print('You\'re in check')
+			# Revert move
+			moves.performMove(move[::-1],True)
+			sg.pieceMatrix[move[1][1]][move[1][0]] = old
+		else:
+			check.setCheck(False)
+	else:
+		check.setCheck(False)
+		old = moves.performMove(move,True)
+		# If after the move, you're now in check: revert the move
+		if sg.blackTurn: 
+			king = check.getIndexes('k')
+			k = 'k'
+		else: 
+			king = check.getIndexes('K')
+			k = 'K'
+			# At this point I'm really just copy pasting stuff
+			# But fuck it i'm done with this shit
+		if check.check(True,king,k):
+			moves.performMove(move[::-1],True)
+			sg.pieceMatrix[move[0][1]][move[0][0]] = old
+			sg.blackTurn = not sg.blackTurn
+			print('You\'re putting yourself into check')
+
 	drawPieces(sg.pieceMatrix)
 	if check.check():
 		print('Check!')
-		if check.checkMate(): print('Check mate!')
+		check.setCheck(True)
+	sg.blackTurn = not sg.blackTurn
 	master.after(0,main())
 
 master.after(0,main())

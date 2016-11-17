@@ -86,7 +86,7 @@ def moveIsObstructed(move):
 	v = makeVector(move)
 	if not (abs(v[0]) == abs(v[1]) or v[0] == 0 or v[1] == 0):
 		return False
-	for i in range(max(v) - 1):
+	for i in range(max((max(v),abs(min(v))))):
 		if sg.pieceMatrix[move[0][1] + v[1]][move[0][0] + v[0]] != '':
 			return True
 		v[0] = sub(v[0])
